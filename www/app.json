@@ -1,0 +1,256 @@
+{
+    "name": "KitchenSink",
+    "js": [
+	
+        {
+            "path": "touch/sencha-touch-all.js"
+        },
+        {
+            "path": "app.js",
+            "update": "delta"
+        }
+		
+		
+    ],
+    "css": [
+	 {
+            "path": "resources/css/base.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        }
+		,
+        
+		 {
+            "path": "resources/css/backtop.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+		
+		{
+            "path": "resources/css/colorstyle.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/chosen.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/design-page.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/dd.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+		
+		{
+            "path": "resources/css/drillmenu.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/jquery.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/jquery_002.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		{
+            "path": "resources/css/jquery-ui.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },		{
+            "path": "resources/css/jquery-ui-1.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+				{
+            "path": "resources/css/megamenu.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+				{
+            "path": "resources/css/modalPopLite.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+				{
+            "path": "resources/css/msgBoxLight.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+				{
+            "path": "resources/css/mt.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+				{
+            "path": "resources/css/mt_002.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/mt_003.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/mt_004.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/mt_005.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/mt_006.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/popup.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/print.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/skin.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/spectrum.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/sociallogin.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/ui.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/styles.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+		
+				{
+            "path": "resources/css/widgets.css",
+            "platform": ["chrome", "safari", "ios", "android", "blackberry", "firefox"],
+			 "theme": "default",
+            "update": "delta"
+        },
+        {
+            "path": "resources/css/wp.css",
+            "platform": ["ie10"],
+            "theme": "Windows",
+            "update": "delta"
+        },
+		 {
+            "path": "resources/css/bb10.css",
+            "platform": ["blackberry"],
+            "theme": "blackberry",
+            "update": "delta"
+        }
+    ],
+    "appCache": {
+        "cache": [
+            "index.html",
+            "carregions.json",
+            "test.json",
+            "userData.json",
+            "resources/images/circle-touch.png",
+            "resources/images/circle-performance.png",
+            "resources/images/circle-architecture.png",
+            "resources/images/circle-native.png",
+            "resources/images/circle-learn.png",
+            "resources/images/circle-touch.png",
+            "resources/images/noise.gif",
+            "resources/images/sencha_small.png"
+        ],
+        "network": [
+            "*"
+        ],
+        "fallback": []
+    },
+    "extras": [
+        "carregions.json",
+        "test.json",
+        "userData.json",
+        "resources/images",
+        "resources/icons",
+        "resources/loading"
+    ],
+    "archivePath": "archive",
+    "buildPaths": {
+        "testing": "../../deploy/testing/kitchensink",
+        "production": "../../deploy/production/kitchensink",
+        "package": "../../deploy/package/kitchensink",
+        "native": "../../deploy/native/kitchensink"
+    },
+    "buildOptions": {
+        "product": "touch",
+        "minVersion": 3,
+        "debug": false,
+        "logger": "no"
+    },
+    "id": "3a867610-670a-11e1-a90e-4318029d18bb"
+}
