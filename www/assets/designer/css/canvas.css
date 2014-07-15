@@ -8,8 +8,10 @@
 	left: 0px;
 }
 .item {
+	padding: 0 !important;
+	margin: 0 !important;
 	position: absolute;
-	background-color: rgba(211, 211, 211, 0.03);
+	background-color: rgba(211, 211, 211, 0.03) !important;
 	-webkit-transition: background-color 0.2s linear;
     -moz-transition: background-color 0.2s linear;
     -o-transition: background-color 0.2s linear;
