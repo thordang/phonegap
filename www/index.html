@@ -21,9 +21,490 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
+
+    <meta http-equiv="cache-control" content="no-cache">
+    <link type="text/css" href="assets/designer/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="assets/designer/css/UI.css" rel="stylesheet">
+    <link type="text/css" href="assets/designer/css/canvas.css" rel="stylesheet">
+    <link type="text/css" href="assets/designer/css/custom-theme/jquery-ui-1.9.0.custom.css" rel="stylesheet">
+
+    <script id="facebook-jssdk" src="http://connect.facebook.net/en_US/all.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.js"></script>
+    <script src="assets/designer/js/bootstrap.js"></script>
+    <script src="assets/designer/js/less.js"></script>
+    <script src="assets/designer/js/UI.js"></script>
+
+    <script type="text/javascript">
+
+        var currentLanguage = 'en';
+        var baseUrl = '';
+        var dcategory = [
+            {"id": "1", "name": "Cover", "textid": "cover"},
+            {"id": "2", "name": "Sticker", "textid": "sticker"}
+        ];
+        var dsubcategory = [
+            {"id": "1", "name": "iPhone", "textid": "iphone", "categoryid": "1"},
+            {"id": "2", "name": "iPad", "textid": "ipad", "categoryid": "1"},
+            {"id": "5", "name": "Samsung", "textid": "samsung", "categoryid": "2"}
+        ];
+        var ddevice = [
+            {"id": "1", "idp": "IP4", "sub_categoryid": "1", "name": "Iphone 6", "textid": "Iphone4", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/iphone5s.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/", "price": "2.99", "SKN": ""},
+            {"id": "2", "idp": "ipadmini", "sub_categoryid": "5", "name": "Ipad Mini", "textid": "ipadmini", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/iphone5s.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/16a28-DIY-preview-ipad-mini.png", "price": "4.99", "SKN": "FACTORY-TPL-IPAD-MINI"},
+            {"id": "3", "idp": "IP5", "sub_categoryid": "1", "name": "Iphone 5", "textid": "iphone5", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/iphone5s.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/1da53-iphone5_preview.png", "price": "5.99", "SKN": "FACTORY-TPL-IPHONE-5-CASE"},
+            {"id": "4", "idp": "iphone5c", "sub_categoryid": "5", "name": "iPhone 5C", "textid": "iphone5c", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/iphone5s.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/1e9ed-7.canvas_skin_iPhone-5c_frontback.png", "price": "15", "SKN": "FACTORY-TPL-IPHONE-5C"},
+            {"id": "5", "idp": "galaxys4", "sub_categoryid": "5", "name": "Galaxy S4", "textid": "galaxys4", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/iphone5s.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/9a4d4-7.canvas_skin_Samsung_front&back.png", "price": "19.5", "SKN": "FACTORY-TPL-SAMSUNG-S4"},
+            {"id": "6", "idp": "galaxynote2", "sub_categoryid": "5", "name": "Galaxy Note 2", "textid": "galaxynote2", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/9db91-6.device_thumbnail_Samsung-Note-II.png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/ad1f6-7.canvas_skin_Samsung-Note-II_front&back.png", "price": "19", "SKN": "SKN_BLABLA"},
+            {"id": "7", "idp": "ipodTouch5", "sub_categoryid": "5", "name": "iPod Touch 5G", "textid": "ipodtouch5", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/thumbnails\/acf0d-6.device_thumbnail_iPod-Touch-5th-gen..png", "preview": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/devices\/preview\/26a10-7.canvas_skin_iPod-Touch-5th-gen._front&back.png", "price": "19", "SKN": "SKN_BLABLA"}
+        ];
+        var dcanvas = [
+            {"id": "1", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/iphone5_canvas_back_thumb.png", "name": "Iphone5 canvas back", "textid": "iphone5canvasback", "width": "247", "height": "478", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/ip5_back_layer.png", "layerboundary": "M 206.75 4.75 C 206.75 4.75 36.75 4.75 36.75 4.75 C 36.75 4.75 5.0 9.25 5.0 39.5 C 5.0 69.75 4.75 446.75 4.75 446.75 C 4.75 446.75 9.25 479.75 40.25 479.5 C 71.25 479.25 206.5 479.75 206.5 479.75 C 206.5 479.75 240.0 476.0 240.0 442.25 C 240.0 408.5 239.75 39.0 239.75 39.0 C 239.75 39.0 239.0 6.5 206.5 4.5", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/", "template": "8e588-back_iphone5.png", "templateboundary": "100,36,904,1492", "previewboundary": "", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "2", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/iphone5_canvas_front_thumb.png", "name": "Iphone5 canvas front", "textid": "iphone5canvasfont", "width": "247", "height": "478", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/ip5_front_layer.png", "layerboundary": "M 206.75 4.75 C 206.75 4.75 36.75 4.75 36.75 4.75 C 36.75 4.75 5.0 9.25 5.0 39.5 C 5.0 69.75 4.75 446.75 4.75 446.75 C 4.75 446.75 9.25 479.75 40.25 479.5 C 71.25 479.25 206.5 479.75 206.5 479.75 C 206.5 479.75 240.0 476.0 240.0 442.25 C 240.0 408.5 239.75 39.0 239.75 39.0 C 239.75 39.0 239.0 6.5 206.5 4.5", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/", "template": "1a81a-front_iphone5.png", "templateboundary": "102,126,720,1494", "previewboundary": "", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "4", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/", "name": "Cover", "textid": "coverr", "width": "400", "height": "500", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/51ce2-cover.png", "layerboundary": "M 206.75 4.75 C 206.75 4.75 36.75 4.75 36.75 4.75 C 36.75 4.75 5.0 9.25 5.0 39.5 C 5.0 69.75 4.75 446.75 4.75 446.75 C 4.75 446.75 9.25 479.75 40.25 479.5 C 71.25 479.25 206.5 479.75 206.5 479.75 C 206.5 479.75 240.0 476.0 240.0 442.25 C 240.0 408.5 239.75 39.0 239.75 39.0 C 239.75 39.0 239.0 6.5 206.5 4.5", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/", "template": "0", "templateboundary": "", "previewboundary": "", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "5", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/7e4c7-page1.png", "name": "Page 1", "textid": "p1", "width": "400", "height": "500", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/b089e-page1.png", "layerboundary": "", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/", "template": "0", "templateboundary": "", "previewboundary": "", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "6", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/591e1-page2.png", "name": "Page 2", "textid": "p2", "width": "400", "height": "500", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/b8a95-page2.png", "layerboundary": "", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/", "template": "0", "templateboundary": "", "previewboundary": "", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "7", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/27015-back.png", "name": "Iphone 5 back", "textid": "iphone5back", "width": "215", "height": "460", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/78bfe-iphone5_layer_back.png", "layerboundary": "M 69.75 0.5 C 69.75 0.5 69.75 2.625 69.75 2.625 C 69.75 2.625 185.625 2.625 185.625 2.625 C 185.625 2.625 191.875 2.75 198.25 7.875 C 204.625 13.0 207.375 17.5 208.625 20.625 C 209.875 23.75 211.375 28.5 211.5 34.75 C 211.625 41.0 211.25 67.5 211.375 67.5 C 211.5 67.5 213.625 68.125 213.625 68.125 C 213.625 68.125 213.625 84.25 213.625 84.25 C 213.625 84.25 211.5 85.875 211.5 85.875 C 211.5 85.875 211.375 109.625 211.375 109.625 C 211.375 109.625 213.5 110.375 213.5 110.375 C 213.5 110.375 213.875 123.75 213.875 123.75 C 213.875 123.75 211.5 123.75 211.5 123.75 C 211.5 123.75 211.25 147.625 211.25 147.625 C 211.25 147.625 213.5 148.25 213.5 148.25 C 213.5 148.25 213.5 161.5 213.5 161.5 C 213.5 161.5 211.0 162.125 211.0 162.125 C 211.0 162.125 211.375 415.125 211.375 415.125 C 211.375 415.125 211.5 428.0 211.5 428.0 C 211.5 428.0 210.875 434.5 209.0 438.625 C 207.125 442.75 205.5 446.5 203.625 448.375 C 201.75 450.25 198.125 453.875 195.375 455.25 C 192.625 456.625 189.0 458.0 186.0 458.25 C 183.0 458.5 31.5 458.875 31.5 458.875 C 31.5 458.875 23.5 458.0 18.875 455.625 C 14.25 453.25 9.25 449.875 7.375 447.125 C 5.5 444.375 2.125 439.5 2.0 436.75 C 1.875 434.0 1.125 411.25 1.125 411.25 C 1.125 411.25 0.625 30.75 0.875 31.25 C 1.125 31.75 1.375 26.0 3.75 21.125 C 6.125 16.25 7.0 14.5 10.875 10.875 C 14.75 7.25 18.5 5.5 23.5 3.875 C 28.5 2.25 34.625 2.875 35.625 2.75 C 36.625 2.625 36.75 0.875 36.75 0.875 C 36.75 0.875 69.625 0.5 69.625 0.5 z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/88053-iphone5_case_back.png", "template": "20df6-back_iphone5.png", "templateboundary": "100,36,904,1492", "previewboundary": "5,178,214,461", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "11", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/082a1-DIY-canvas-back-thumbnail.png", "name": "iPad mini back", "textid": "ipad_mini_back", "width": "353", "height": "518", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/ae132-DIY-canvas-back-under.png", "layerboundary": "M345.667,485.667c0,13.75-11.25,25-25,25H33.333              c-13.75,0-25-11.25-25-25V32.333c0-13.75,11.25-25,25-25h287.333c13.75,0,25,11.25,25,25V485.667z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/b4305-DIY-canvas-back.png", "template": "0ca0c-DIY-print-ipad-mini.png", "templateboundary": "222,78,1416,2070", "previewboundary": "4,197,505,533", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "13", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/51109-9.canvas_thumbnail_iPhone_5c_front.png", "name": "iPhone 5C Front", "textid": "iphone_front", "width": "274", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/0ca20-2.canvas_background_iPhone_5c_front.png", "layerboundary": "M257,488.314 \t\tC257,510.142,239.142,528,217.314,528H56.352c-21.827,0-39.685-17.858-39.685-39.686V55.685C16.667,33.858,34.525,16,56.352,16 \t\th160.963C239.142,16,257,33.858,257,55.685V488.314z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/6eed7-1.canvas_skin_iPhone-5c_front.png", "template": "7ced7-template_print_canvas_iphone5c_back.png", "templateboundary": "0,0,0,0", "previewboundary": "9,8,260,514", "isbackground": "0", "background": "", "sort": "1"},
+            {"id": "14", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/ef4ed-5.canvas_thumbnail_iPhone_5c.png", "name": "iPhone 5C back", "textid": "iphone5c_back", "width": "274", "height": "541", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/083e6-4.canvas_background_iPhone_5c_back.png", "layerboundary": "M260,489.982 \t\tc0,21.826-17.858,39.685-39.686,39.685H52.352c-21.827,0-39.685-17.858-39.685-39.685V54.685C12.667,32.858,30.525,15,52.352,15 \t\th167.963C242.142,15,260,32.858,260,54.685V489.982z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/8bbff-3.canvas_skin_iPhone_5c_back.png", "template": "03505-template_print_canvas_iphone5c_back.png", "templateboundary": "0,0,0,0", "previewboundary": "9,230,476,518", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "16", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/98414-5.canvas_thumbnail_Samsung-S4.png", "name": "Back", "textid": "back_galaxys4", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/2b920-4.canvas_background_Samsung-S4_back.png", "layerboundary": "M214.5,516.5H73.694c-23.436,0-54.194-10.79-54.194-47.081V74 \tc0-32,26.837-44.5,50-44.5H215c23.163,0,53.5,10.693,53.5,41.817V472.5C265.57,502.166,237.663,516.5,214.5,516.5z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/1be0b-3.canvas_skin_Samsung-S4_back.png", "template": "a00e5-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "17", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/9479d-9.canvas_thumbnail_Samsung-S4_front.png", "name": "Front", "textid": "front_s4", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/2578b-2.canvas_background_Samsung-S4_front.png", "layerboundary": "M215.279,518.5H76.062C53.333,518.5,23.5,503,23.5,477.885V86.115 \tC23.5,55.5,55.541,45.5,72,45.5h144.7c13.8,0,48.3,5.5,48.3,40.615v391.77C262.159,506.698,237.744,518.5,215.279,518.5z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/25ae8-1.canvas_skin_Samsung-S4_front.png", "template": "315d7-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "1"},
+            {"id": "18", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/a65da-9.canvas_thumbnail_Samsung-Note-II_front.png", "name": "Front", "textid": "canvas_front", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/d7844-2.canvas_background_Samsun-Note-II_front.png", "layerboundary": "M206.47,490H74.712C48.5,490,24,480.217,24,447.318V88.842 \tC24,59.832,46,48.5,70.787,48.5h136.15C240,48.5,257,58.193,257,86.41v363.701C257,480.5,230,490,206.47,490z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/47e23-1.canvas_skin_Samsung-Note-II_front.png", "template": "031b1-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "1"},
+            {"id": "19", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/35aed-5.canvas_thumbnail_Samsung-Note-II_bac.png", "name": "Back", "textid": "canvas_back", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/e3355-4.canvas_background_Samsung-Note-II_back.png", "layerboundary": "M208.47,490.5H76.712C50.5,490.5,26,480.662,26,447.576V87.07 \tC26,57.896,48,46.5,72.787,46.5h136.15C242,46.5,259,56.248,259,84.625v365.76C259,480.946,232,490.5,208.47,490.5z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/3c707-3.canvas_skin_Samsung-Note-II_back.png", "template": "1f829-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "20", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/260f3-9.canvas_thumbnail_iPod-Touch-5th-gen._front.png", "name": "Front", "textid": "canvas_front", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/77a60-2.canvas_background_iPod-Touch-5th-gen._front.png", "layerboundary": "M258.333,461.648 \t\tc0,21.827-17.858,39.686-39.685,39.686H71.352c-21.827,0-39.685-17.858-39.685-39.686V62.352c0-21.827,17.858-39.685,39.685-39.685 \t\th147.297c21.826,0,39.685,17.858,39.685,39.685V461.648z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/d3365-1.canvas_skin_iPod-Touch-5th-gen._front.png", "template": "b7270-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "21", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/79a30-5.canvas_thumbnail_iPod-Touch-5th-gen..png", "name": "back", "textid": "canvas_back", "width": "285", "height": "540", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/e64d6-4.canvas_background_iPod-Touch-5th-gen._back.png", "layerboundary": "M255.333,461.648 \t\tc0,21.827-17.858,39.686-39.685,39.686H68.352c-21.827,0-39.685-17.858-39.685-39.686V62.352c0-21.827,17.858-39.685,39.685-39.685 \t\th147.297c21.826,0,39.685,17.858,39.685,39.685V461.648z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/71105-3.canvas_skin_iPod-Touch-5th-gen._back.png", "template": "ad0f3-template_print.png", "templateboundary": "0,0,0,0", "previewboundary": "0,0,0,0", "isbackground": "0", "background": "", "sort": "0"},
+            {"id": "22", "thumbnail": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/thumbnails\/0877e-canvas_thumbnail_iPhone_5c.png", "name": "iPhone6 Concept", "textid": "iphone6", "width": "274", "height": "541", "beside": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/1c418-beside_ip4.png", "layer": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/layers\/2141f-canvas_background_iPhone_5.png", "layerboundary": "M260,489.982 \t\tc0,21.826-17.858,39.685-39.686,39.685H52.352c-21.827,0-39.685-17.858-39.685-39.685V54.685C12.667,32.858,30.525,15,52.352,15 \t\th167.963C242.142,15,260,32.858,260,54.685V489.982z", "skin": "http:\/\/local.beesightsoft.com:81\/skinizi\/assets\/uploads\/canvas\/skins\/ef7f5-canvas_skin_iPhone_5c.png", "template": "01e22-canvas_skin_iPhone_5c.png", "templateboundary": "0,0,0,0", "previewboundary": "9,230,476,518", "isbackground": "0", "background": "", "sort": "0"}
+        ];
+        var devvas = [
+            {"deviceid": "99", "canvasid": "2", "priority": "0"},
+            {"deviceid": "99", "canvasid": "1", "priority": "1"},
+            {"deviceid": "1", "canvasid": "22", "priority": "0"},
+            {"deviceid": "2", "canvasid": "11", "priority": "0"},
+            {"deviceid": "3", "canvasid": "7", "priority": "0"},
+            {"deviceid": "4", "canvasid": "14", "priority": "0"},
+            {"deviceid": "4", "canvasid": "13", "priority": "0"},
+            {"deviceid": "5", "canvasid": "17", "priority": "0"},
+            {"deviceid": "5", "canvasid": "16", "priority": "0"},
+            {"deviceid": "6", "canvasid": "18", "priority": "0"},
+            {"deviceid": "6", "canvasid": "19", "priority": "0"},
+            {"deviceid": "7", "canvasid": "20", "priority": "0"},
+            {"deviceid": "7", "canvasid": "21", "priority": "0"}
+        ];
+        var layouts = [
+            {"id": "5", "idc": "1", "name": "", "data": "[{\"b\":[4,4,54,54],\"p\":3},{\"b\":[66,4,54,54],\"p\":3},{\"b\":[128,4,54,54],\"p\":3},{\"b\":[190,4,54,54],\"p\":3},{\"b\":[252,4,54,54],\"p\":3},{\"b\":[314,4,54,54],\"p\":3},{\"b\":[376,4,54,54],\"p\":3},{\"b\":[438,4,54,54],\"p\":3},{\"b\":[4,66,54,54],\"p\":3},{\"b\":[66,66,54,54],\"p\":3},{\"b\":[128,66,54,54],\"p\":3},{\"b\":[190,66,54,54],\"p\":3},{\"b\":[252,66,54,54],\"p\":3},{\"b\":[314,66,54,54],\"p\":3},{\"b\":[376,66,54,54],\"p\":3},{\"b\":[438,66,54,54],\"p\":3},{\"b\":[4,128,54,54],\"p\":3},{\"b\":[66,128,54,54],\"p\":3},{\"b\":[128,128,54,54],\"p\":3},{\"b\":[190,128,54,54],\"p\":3},{\"b\":[252,128,54,54],\"p\":3},{\"b\":[314,128,54,54],\"p\":3},{\"b\":[376,128,54,54],\"p\":3},{\"b\":[438,128,54,54],\"p\":3},{\"b\":[4,190,54,54],\"p\":3},{\"b\":[66,190,54,54],\"p\":3},{\"b\":[128,190,54,54],\"p\":3},{\"b\":[190,190,54,54],\"p\":3},{\"b\":[252,190,54,54],\"p\":3},{\"b\":[314,190,54,54],\"p\":3},{\"b\":[376,190,54,54],\"p\":3},{\"b\":[438,190,54,54],\"p\":3}]", "thumbnail": "default.png"},
+            {"id": "8", "idc": "2", "name": "", "data": "[{\"b\":[-15,-1,41,41],\"p\":-1},{\"b\":[26,-1,41,41],\"p\":-1},{\"b\":[77,-16,41,41],\"p\":-1},{\"b\":[118,-16,41,41],\"p\":-1},{\"b\":[159,-16,41,41],\"p\":-1},{\"b\":[200,-16,41,41],\"p\":-1},{\"b\":[241,-16,41,41],\"p\":-1},{\"b\":[282,-16,41,41],\"p\":-1},{\"b\":[323,-16,41,41],\"p\":-1},{\"b\":[364,-16,41,41],\"p\":-1},{\"b\":[415,-1,41,41],\"p\":-1},{\"b\":[456,-1,41,41],\"p\":-1},{\"b\":[-15,40,41,41],\"p\":-1},{\"b\":[26,40,41,41],\"p\":-1},{\"b\":[415,40,41,41],\"p\":-1},{\"b\":[456,40,41,41],\"p\":-1},{\"b\":[-15,81,41,41],\"p\":-1},{\"b\":[26,81,41,41],\"p\":-1},{\"b\":[415,81,41,41],\"p\":-1},{\"b\":[456,81,41,41],\"p\":-1},{\"b\":[-15,122,41,41],\"p\":-1},{\"b\":[26,122,41,41],\"p\":-1},{\"b\":[415,122,41,41],\"p\":-1},{\"b\":[456,122,41,41],\"p\":-1},{\"b\":[-15,163,41,41],\"p\":-1},{\"b\":[26,163,41,41],\"p\":-1},{\"b\":[415,163,41,41],\"p\":-1},{\"b\":[456,163,41,41],\"p\":-1},{\"b\":[-15,204,41,41],\"p\":-1},{\"b\":[26,204,41,41],\"p\":-1},{\"b\":[77,221,41,41],\"p\":-1},{\"b\":[118,221,41,41],\"p\":-1},{\"b\":[159,221,41,41],\"p\":-1},{\"b\":[200,221,41,41],\"p\":-1},{\"b\":[241,221,41,41],\"p\":-1},{\"b\":[282,221,41,41],\"p\":-1},{\"b\":[323,221,41,41],\"p\":-1},{\"b\":[364,221,41,41],\"p\":-1},{\"b\":[415,204,41,41],\"p\":-1},{\"b\":[456,204,41,41],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "12", "idc": "1", "name": "", "data": "[{\"b\":[1,5,74,74],\"p\":-1},{\"b\":[81,5,74,74],\"p\":-1},{\"b\":[161,5,74,74],\"p\":-1},{\"b\":[241,5,74,74],\"p\":-1},{\"b\":[321,5,74,74],\"p\":-1},{\"b\":[401,5,74,74],\"p\":-1},{\"b\":[1,85,74,74],\"p\":-1},{\"b\":[81,85,74,74],\"p\":-1},{\"b\":[161,85,74,74],\"p\":-1},{\"b\":[241,85,74,74],\"p\":-1},{\"b\":[321,85,74,74],\"p\":-1},{\"b\":[401,85,74,74],\"p\":-1},{\"b\":[1,165,74,74],\"p\":-1},{\"b\":[81,165,74,74],\"p\":-1},{\"b\":[161,165,74,74],\"p\":-1},{\"b\":[241,165,74,74],\"p\":-1},{\"b\":[321,165,74,74],\"p\":-1},{\"b\":[401,165,74,74],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "13", "idc": "2", "name": "", "data": "[{\"b\":[12,1,94,94],\"p\":6},{\"b\":[112,1,144,94],\"p\":-1},{\"b\":[212,1,94,94],\"p\":2},{\"b\":[312,1,94,144],\"p\":-1},{\"b\":[12,101,144,94],\"p\":-1},{\"b\":[212,101,144,94],\"p\":-1},{\"b\":[312,101,144,144],\"p\":-1},{\"b\":[112,151,94,94],\"p\":3}]", "thumbnail": "default.png"},
+            {"id": "14", "idc": "3", "name": "Page", "data": "[{\"b\":[14,12,173,173],\"p\":-1},{\"b\":[191,12,232,173],\"p\":-1},{\"b\":[368,12,114,114],\"p\":-1},{\"b\":[368,130,232,114],\"p\":-1},{\"b\":[14,189,173,173],\"p\":-1},{\"b\":[191,248,114,173],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "15", "idc": "3", "name": "page2", "data": "[{\"b\":[15,22,173,173],\"p\":-1},{\"b\":[192,22,114,173],\"p\":-1},{\"b\":[369,22,232,114],\"p\":-1},{\"b\":[192,140,114,173],\"p\":-1},{\"b\":[15,199,173,173],\"p\":-1},{\"b\":[192,258,114,173],\"p\":-1},{\"b\":[369,258,114,114],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "16", "idc": "1", "name": "", "data": "[{\"b\":[1,4,79,79],\"p\":2},{\"b\":[80,4,79,79],\"p\":4},{\"b\":[159,4,79,79],\"p\":6},{\"b\":[238,4,79,79],\"p\":2},{\"b\":[317,4,79,79],\"p\":4},{\"b\":[396,4,79,79],\"p\":6},{\"b\":[1,83,79,79],\"p\":4},{\"b\":[80,83,79,79],\"p\":2},{\"b\":[159,83,79,79],\"p\":4},{\"b\":[238,83,79,79],\"p\":6},{\"b\":[317,83,79,79],\"p\":2},{\"b\":[396,83,79,79],\"p\":4},{\"b\":[1,162,79,79],\"p\":6},{\"b\":[80,162,79,79],\"p\":4},{\"b\":[159,162,79,79],\"p\":2},{\"b\":[238,162,79,79],\"p\":4},{\"b\":[317,162,79,79],\"p\":6},{\"b\":[396,162,79,79],\"p\":2}]", "thumbnail": "default.png"},
+            {"id": "17", "idc": "4", "name": "", "data": "[{\"b\":[171,122,160,114],\"p\":-1},{\"b\":[390,110,185,40],\"p\":-1},{\"b\":[320,70,260,60],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "18", "idc": "5", "name": "", "data": "[{\"b\":[55,70,300,50],\"p\":-1},{\"b\":[200,-25,200,40],\"p\":-1},{\"b\":[340,42,100,100],\"p\":-1},{\"b\":[123,149,208,208],\"p\":-1},{\"b\":[340,150,100,100],\"p\":-1},{\"b\":[340,258,100,100],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "19", "idc": "1", "name": "", "data": "[{\"b\":[2,5,94,94],\"p\":-1},{\"b\":[96,5,141,94],\"p\":-1},{\"b\":[190,5,235,141],\"p\":-1},{\"b\":[331,5,141,141],\"p\":-1},{\"b\":[2,99,141,94],\"p\":-1},{\"b\":[96,146,94,94],\"p\":-1},{\"b\":[331,146,94,141],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "20", "idc": "7", "name": "", "data": "[{\"b\":[0,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[66,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[132,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[198,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[264,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[330,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[396,2,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[0,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[66,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[132,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[198,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[264,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[330,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[396,75,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[0,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[66,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[132,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[198,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[264,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[330,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[396,148,62,62],\"p\":-1,\"c\":null,\"r\":null,\"m\":null}]", "thumbnail": "_21_September_2_28_40.png"},
+            {"id": "21", "idc": "8", "name": "", "data": "[{\"b\":[1,-1,52,52],\"p\":-1},{\"b\":[59,-1,52,52],\"p\":-1},{\"b\":[117,-1,52,52],\"p\":-1},{\"b\":[175,-1,52,52],\"p\":-1},{\"b\":[232,-1,52,52],\"p\":-1},{\"b\":[290,-1,52,52],\"p\":-1},{\"b\":[347,-1,52,52],\"p\":-1},{\"b\":[405,-1,52,52],\"p\":-1},{\"b\":[1,53,52,52],\"p\":-1},{\"b\":[59,53,52,52],\"p\":-1},{\"b\":[117,53,52,52],\"p\":-1},{\"b\":[175,53,52,52],\"p\":-1},{\"b\":[232,53,52,52],\"p\":-1},{\"b\":[290,53,52,52],\"p\":-1},{\"b\":[347,53,52,52],\"p\":-1},{\"b\":[405,53,52,52],\"p\":-1},{\"b\":[1,107,52,52],\"p\":-1},{\"b\":[59,107,52,52],\"p\":-1},{\"b\":[117,107,52,52],\"p\":-1},{\"b\":[175,107,52,52],\"p\":-1},{\"b\":[232,107,52,52],\"p\":-1},{\"b\":[290,107,52,52],\"p\":-1},{\"b\":[347,107,52,52],\"p\":-1},{\"b\":[405,107,52,52],\"p\":-1},{\"b\":[1,161,52,52],\"p\":-1},{\"b\":[59,161,52,52],\"p\":-1},{\"b\":[117,161,52,52],\"p\":-1},{\"b\":[175,161,52,52],\"p\":-1},{\"b\":[232,161,52,52],\"p\":-1},{\"b\":[290,161,52,52],\"p\":-1},{\"b\":[347,161,52,52],\"p\":-1},{\"b\":[405,161,52,52],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "22", "idc": "7", "name": "", "data": "[{\"b\":[-1,2,96,96],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[103,2,106,148],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[258,2,209,98],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[363,2,83,96],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[-1,105,106,96],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[103,115,96,148],\"p\":-1,\"c\":null,\"r\":null,\"m\":null},{\"b\":[363,92,118,96],\"p\":-1,\"c\":null,\"r\":null,\"m\":null}]", "thumbnail": "_8_October_8_9_22.png"},
+            {"id": "23", "idc": "9", "name": "", "data": "[{\"b\":[4,4,66,66],\"p\":-1},{\"b\":[78,4,66,66],\"p\":-1},{\"b\":[152,4,66,66],\"p\":-1},{\"b\":[226,4,66,66],\"p\":-1},{\"b\":[300,4,66,66],\"p\":-1},{\"b\":[374,4,66,66],\"p\":-1},{\"b\":[448,4,66,66],\"p\":-1},{\"b\":[522,4,66,66],\"p\":-1},{\"b\":[4,78,66,66],\"p\":-1},{\"b\":[78,78,66,66],\"p\":-1},{\"b\":[152,78,66,66],\"p\":-1},{\"b\":[226,78,66,66],\"p\":-1},{\"b\":[300,78,66,66],\"p\":-1},{\"b\":[374,78,66,66],\"p\":-1},{\"b\":[448,78,66,66],\"p\":-1},{\"b\":[522,78,66,66],\"p\":-1},{\"b\":[4,152,66,66],\"p\":-1},{\"b\":[78,152,66,66],\"p\":-1},{\"b\":[152,152,66,66],\"p\":-1},{\"b\":[226,152,66,66],\"p\":-1},{\"b\":[300,152,66,66],\"p\":-1},{\"b\":[374,152,66,66],\"p\":-1},{\"b\":[448,152,66,66],\"p\":-1},{\"b\":[522,152,66,66],\"p\":-1},{\"b\":[4,226,66,66],\"p\":-1},{\"b\":[78,226,66,66],\"p\":-1},{\"b\":[152,226,66,66],\"p\":-1},{\"b\":[226,226,66,66],\"p\":-1},{\"b\":[300,226,66,66],\"p\":-1},{\"b\":[374,226,66,66],\"p\":-1},{\"b\":[448,226,66,66],\"p\":-1},{\"b\":[522,226,66,66],\"p\":-1},{\"b\":[4,300,66,66],\"p\":-1},{\"b\":[78,300,66,66],\"p\":-1},{\"b\":[152,300,66,66],\"p\":-1},{\"b\":[226,300,66,66],\"p\":-1},{\"b\":[300,300,66,66],\"p\":-1},{\"b\":[374,300,66,66],\"p\":-1},{\"b\":[448,300,66,66],\"p\":-1},{\"b\":[522,300,66,66],\"p\":-1}]", "thumbnail": "default.png"},
+            {"id": "24", "idc": "8", "name": "", "data": "[{\"b\":[0,0,47,47],\"p\":1,\"c\":0,\"r\":0,\"m\":0},{\"b\":[58,0,47,47],\"p\":1,\"c\":0,\"r\":1,\"m\":0},{\"b\":[117,0,47,47],\"p\":-1,\"c\":0,\"r\":2,\"m\":0},{\"b\":[175,0,47,47],\"p\":-1,\"c\":0,\"r\":3,\"m\":0},{\"b\":[234,0,47,47],\"p\":-1,\"c\":0,\"r\":4,\"m\":0},{\"b\":[293,0,47,47],\"p\":-1,\"c\":0,\"r\":5,\"m\":0},{\"b\":[351,0,47,47],\"p\":-1,\"c\":0,\"r\":6,\"m\":0},{\"b\":[409,0,47,47],\"p\":1,\"c\":0,\"r\":7,\"m\":0},{\"b\":[0,55,47,47],\"p\":5,\"c\":1,\"r\":0,\"m\":0},{\"b\":[58,55,47,47],\"p\":-1,\"c\":1,\"r\":1,\"m\":0},{\"b\":[117,55,47,47],\"p\":1,\"c\":1,\"r\":2,\"m\":0},{\"b\":[175,55,47,47],\"p\":-1,\"c\":1,\"r\":3,\"m\":0},{\"b\":[234,55,47,47],\"p\":-1,\"c\":1,\"r\":4,\"m\":0},{\"b\":[293,55,47,47],\"p\":-1,\"c\":1,\"r\":5,\"m\":0},{\"b\":[351,55,47,47],\"p\":1,\"c\":1,\"r\":6,\"m\":0},{\"b\":[409,55,47,47],\"p\":-1,\"c\":1,\"r\":7,\"m\":0},{\"b\":[0,110,104,104],\"p\":4,\"c\":2,\"r\":0,\"m\":3},{\"b\":[117,110,47,47],\"p\":-1,\"c\":2,\"r\":2,\"m\":0},{\"b\":[175,110,47,47],\"p\":1,\"c\":2,\"r\":3,\"m\":0},{\"b\":[234,110,47,47],\"p\":-1,\"c\":2,\"r\":4,\"m\":0},{\"b\":[293,110,47,47],\"p\":1,\"c\":2,\"r\":5,\"m\":0},{\"b\":[351,110,47,47],\"p\":-1,\"c\":2,\"r\":6,\"m\":0},{\"b\":[409,110,47,47],\"p\":-1,\"c\":2,\"r\":7,\"m\":0},{\"b\":[117,165,47,47],\"p\":-1,\"c\":3,\"r\":2,\"m\":0},{\"b\":[175,165,47,47],\"p\":-1,\"c\":3,\"r\":3,\"m\":0},{\"b\":[234,165,47,47],\"p\":1,\"c\":3,\"r\":4,\"m\":0},{\"b\":[293,165,47,47],\"p\":-1,\"c\":3,\"r\":5,\"m\":0},{\"b\":[351,165,47,47],\"p\":-1,\"c\":3,\"r\":6,\"m\":0},{\"b\":[409,165,47,47],\"p\":-1,\"c\":3,\"r\":7,\"m\":0}]", "thumbnail": "_11_September_12_11_31.png"},
+            {"id": "25", "idc": "7", "name": "", "data": "[{\"b\":[0,0,210,462],\"p\":-1,\"c\":0,\"r\":0,\"m\":54}]", "thumbnail": "_12_September_7_52_55.png"},
+            {"id": "29", "idc": "11", "name": "", "data": "[{\"b\":[2,2,54,54],\"p\":-1,\"c\":0,\"r\":0,\"m\":0},{\"b\":[60,2,54,54],\"p\":-1,\"c\":0,\"r\":1,\"m\":0},{\"b\":[118,2,54,54],\"p\":-1,\"c\":0,\"r\":2,\"m\":0},{\"b\":[176,2,54,54],\"p\":-1,\"c\":0,\"r\":3,\"m\":0},{\"b\":[234,2,54,54],\"p\":-1,\"c\":0,\"r\":4,\"m\":0},{\"b\":[292,2,54,54],\"p\":-1,\"c\":0,\"r\":5,\"m\":0},{\"b\":[350,2,54,54],\"p\":-1,\"c\":0,\"r\":6,\"m\":0},{\"b\":[408,2,54,54],\"p\":-1,\"c\":0,\"r\":7,\"m\":0},{\"b\":[466,2,54,54],\"p\":-1,\"c\":0,\"r\":8,\"m\":0},{\"b\":[2,60,54,54],\"p\":-1,\"c\":1,\"r\":0,\"m\":0},{\"b\":[60,60,54,54],\"p\":-1,\"c\":1,\"r\":1,\"m\":0},{\"b\":[118,60,54,54],\"p\":-1,\"c\":1,\"r\":2,\"m\":0},{\"b\":[176,60,54,54],\"p\":-1,\"c\":1,\"r\":3,\"m\":0},{\"b\":[234,60,54,54],\"p\":-1,\"c\":1,\"r\":4,\"m\":0},{\"b\":[292,60,54,54],\"p\":-1,\"c\":1,\"r\":5,\"m\":0},{\"b\":[350,60,54,54],\"p\":-1,\"c\":1,\"r\":6,\"m\":0},{\"b\":[408,60,54,54],\"p\":-1,\"c\":1,\"r\":7,\"m\":0},{\"b\":[466,60,54,54],\"p\":-1,\"c\":1,\"r\":8,\"m\":0},{\"b\":[2,118,54,54],\"p\":-1,\"c\":2,\"r\":0,\"m\":0},{\"b\":[60,118,54,54],\"p\":-1,\"c\":2,\"r\":1,\"m\":0},{\"b\":[118,118,54,54],\"p\":-1,\"c\":2,\"r\":2,\"m\":0},{\"b\":[176,118,54,54],\"p\":-1,\"c\":2,\"r\":3,\"m\":0},{\"b\":[234,118,54,54],\"p\":-1,\"c\":2,\"r\":4,\"m\":0},{\"b\":[292,118,54,54],\"p\":-1,\"c\":2,\"r\":5,\"m\":0},{\"b\":[350,118,54,54],\"p\":-1,\"c\":2,\"r\":6,\"m\":0},{\"b\":[408,118,54,54],\"p\":-1,\"c\":2,\"r\":7,\"m\":0},{\"b\":[466,118,54,54],\"p\":-1,\"c\":2,\"r\":8,\"m\":0},{\"b\":[2,176,54,54],\"p\":-1,\"c\":3,\"r\":0,\"m\":0},{\"b\":[60,176,54,54],\"p\":-1,\"c\":3,\"r\":1,\"m\":0},{\"b\":[118,176,54,54],\"p\":-1,\"c\":3,\"r\":2,\"m\":0},{\"b\":[176,176,54,54],\"p\":-1,\"c\":3,\"r\":3,\"m\":0},{\"b\":[234,176,54,54],\"p\":-1,\"c\":3,\"r\":4,\"m\":0},{\"b\":[292,176,54,54],\"p\":-1,\"c\":3,\"r\":5,\"m\":0},{\"b\":[350,176,54,54],\"p\":-1,\"c\":3,\"r\":6,\"m\":0},{\"b\":[408,176,54,54],\"p\":-1,\"c\":3,\"r\":7,\"m\":0},{\"b\":[466,176,54,54],\"p\":-1,\"c\":3,\"r\":8,\"m\":0},{\"b\":[2,234,54,54],\"p\":-1,\"c\":4,\"r\":0,\"m\":0},{\"b\":[60,234,54,54],\"p\":-1,\"c\":4,\"r\":1,\"m\":0},{\"b\":[118,234,54,54],\"p\":-1,\"c\":4,\"r\":2,\"m\":0},{\"b\":[176,234,54,54],\"p\":-1,\"c\":4,\"r\":3,\"m\":0},{\"b\":[234,234,54,54],\"p\":-1,\"c\":4,\"r\":4,\"m\":0},{\"b\":[292,234,54,54],\"p\":-1,\"c\":4,\"r\":5,\"m\":0},{\"b\":[350,234,54,54],\"p\":-1,\"c\":4,\"r\":6,\"m\":0},{\"b\":[408,234,54,54],\"p\":-1,\"c\":4,\"r\":7,\"m\":0},{\"b\":[466,234,54,54],\"p\":-1,\"c\":4,\"r\":8,\"m\":0},{\"b\":[2,292,54,54],\"p\":-1,\"c\":5,\"r\":0,\"m\":0},{\"b\":[60,292,54,54],\"p\":-1,\"c\":5,\"r\":1,\"m\":0},{\"b\":[118,292,54,54],\"p\":-1,\"c\":5,\"r\":2,\"m\":0},{\"b\":[176,292,54,54],\"p\":-1,\"c\":5,\"r\":3,\"m\":0},{\"b\":[234,292,54,54],\"p\":-1,\"c\":5,\"r\":4,\"m\":0},{\"b\":[292,292,54,54],\"p\":-1,\"c\":5,\"r\":5,\"m\":0},{\"b\":[350,292,54,54],\"p\":-1,\"c\":5,\"r\":6,\"m\":0},{\"b\":[408,292,54,54],\"p\":-1,\"c\":5,\"r\":7,\"m\":0},{\"b\":[466,292,54,54],\"p\":-1,\"c\":5,\"r\":8,\"m\":0}]", "thumbnail": "_14_September_15_25_33.png"},
+            {"id": "30", "idc": "11", "name": "", "data": "[{\"b\":[2,2,112,112],\"p\":-1,\"c\":0,\"r\":0,\"m\":3},{\"b\":[118,2,54,54],\"p\":-1,\"c\":0,\"r\":2,\"m\":0},{\"b\":[176,2,54,54],\"p\":-1,\"c\":0,\"r\":3,\"m\":0},{\"b\":[234,2,112,112],\"p\":-1,\"c\":0,\"r\":4,\"m\":3},{\"b\":[350,2,54,54],\"p\":-1,\"c\":0,\"r\":6,\"m\":0},{\"b\":[408,2,54,54],\"p\":-1,\"c\":0,\"r\":7,\"m\":0},{\"b\":[466,2,54,54],\"p\":-1,\"c\":0,\"r\":8,\"m\":0},{\"b\":[118,60,54,54],\"p\":-1,\"c\":1,\"r\":2,\"m\":0},{\"b\":[176,60,54,54],\"p\":-1,\"c\":1,\"r\":3,\"m\":0},{\"b\":[350,60,54,54],\"p\":-1,\"c\":1,\"r\":6,\"m\":0},{\"b\":[408,60,54,54],\"p\":-1,\"c\":1,\"r\":7,\"m\":0},{\"b\":[466,60,54,54],\"p\":-1,\"c\":1,\"r\":8,\"m\":0},{\"b\":[2,118,54,54],\"p\":-1,\"c\":2,\"r\":0,\"m\":0},{\"b\":[60,118,54,54],\"p\":-1,\"c\":2,\"r\":1,\"m\":0},{\"b\":[118,118,112,112],\"p\":-1,\"c\":2,\"r\":2,\"m\":3},{\"b\":[234,118,54,54],\"p\":-1,\"c\":2,\"r\":4,\"m\":0},{\"b\":[292,118,54,54],\"p\":-1,\"c\":2,\"r\":5,\"m\":0},{\"b\":[350,118,112,170],\"p\":-1,\"c\":2,\"r\":6,\"m\":5},{\"b\":[2,176,54,54],\"p\":-1,\"c\":3,\"r\":0,\"m\":0},{\"b\":[60,176,54,54],\"p\":-1,\"c\":3,\"r\":1,\"m\":0},{\"b\":[234,176,54,54],\"p\":-1,\"c\":3,\"r\":4,\"m\":0},{\"b\":[292,176,54,54],\"p\":-1,\"c\":3,\"r\":5,\"m\":0},{\"b\":[2,234,112,112],\"p\":-1,\"c\":4,\"r\":0,\"m\":3},{\"b\":[118,234,54,54],\"p\":-1,\"c\":4,\"r\":2,\"m\":0},{\"b\":[176,234,54,54],\"p\":-1,\"c\":4,\"r\":3,\"m\":0},{\"b\":[234,234,112,112],\"p\":-1,\"c\":4,\"r\":4,\"m\":3},{\"b\":[350,234,54,54],\"p\":-1,\"c\":4,\"r\":6,\"m\":0},{\"b\":[408,234,54,54],\"p\":-1,\"c\":4,\"r\":7,\"m\":0},{\"b\":[466,234,54,54],\"p\":-1,\"c\":4,\"r\":8,\"m\":0},{\"b\":[118,292,54,54],\"p\":-1,\"c\":5,\"r\":2,\"m\":0},{\"b\":[176,292,54,54],\"p\":-1,\"c\":5,\"r\":3,\"m\":0},{\"b\":[350,292,54,54],\"p\":-1,\"c\":5,\"r\":6,\"m\":0},{\"b\":[408,292,54,54],\"p\":-1,\"c\":5,\"r\":7,\"m\":0},{\"b\":[466,292,54,54],\"p\":-1,\"c\":5,\"r\":8,\"m\":0}]", "thumbnail": "_14_September_15_27_30.png"},
+            {"id": "31", "idc": "11", "name": "", "data": "[{\"b\":[4,4,79,79],\"p\":-1,\"c\":0,\"r\":0,\"m\":0},{\"b\":[91,4,79,79],\"p\":-1,\"c\":0,\"r\":1,\"m\":0},{\"b\":[178,4,79,79],\"p\":-1,\"c\":0,\"r\":2,\"m\":0},{\"b\":[265,4,79,79],\"p\":-1,\"c\":0,\"r\":3,\"m\":0},{\"b\":[352,4,79,79],\"p\":-1,\"c\":0,\"r\":4,\"m\":0},{\"b\":[439,4,79,79],\"p\":-1,\"c\":0,\"r\":5,\"m\":0},{\"b\":[4,91,79,79],\"p\":-1,\"c\":1,\"r\":0,\"m\":0},{\"b\":[91,91,166,166],\"p\":4,\"c\":1,\"r\":1,\"m\":3},{\"b\":[265,91,79,79],\"p\":-1,\"c\":1,\"r\":3,\"m\":0},{\"b\":[352,91,79,79],\"p\":5,\"c\":1,\"r\":4,\"m\":0},{\"b\":[439,91,79,79],\"p\":-1,\"c\":1,\"r\":5,\"m\":0},{\"b\":[4,178,79,79],\"p\":-1,\"c\":2,\"r\":0,\"m\":0},{\"b\":[265,178,79,79],\"p\":-1,\"c\":2,\"r\":3,\"m\":0},{\"b\":[352,178,79,79],\"p\":5,\"c\":2,\"r\":4,\"m\":0},{\"b\":[439,178,79,79],\"p\":-1,\"c\":2,\"r\":5,\"m\":0},{\"b\":[4,265,79,79],\"p\":-1,\"c\":3,\"r\":0,\"m\":0},{\"b\":[91,265,79,79],\"p\":-1,\"c\":3,\"r\":1,\"m\":0},{\"b\":[178,265,79,79],\"p\":-1,\"c\":3,\"r\":2,\"m\":0},{\"b\":[265,265,79,79],\"p\":-1,\"c\":3,\"r\":3,\"m\":0},{\"b\":[352,265,79,79],\"p\":-1,\"c\":3,\"r\":4,\"m\":0},{\"b\":[439,265,79,79],\"p\":-1,\"c\":3,\"r\":5,\"m\":0}]", "thumbnail": "_16_September_11_9_28.png"},
+            {"id": "32", "idc": "11", "name": "", "data": "[{\"b\":[0,0,352,519],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_25_September_12_10_6.png"},
+            {"id": "34", "idc": "12", "name": "One frame", "data": "[{\"b\":[0,0,272,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_13_October_11_21_14.png"},
+            {"id": "35", "idc": "13", "name": "One Cell", "data": "[{\"b\":[0,0,274,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_13_October_11_41_42.png"},
+            {"id": "36", "idc": "14", "name": "", "data": "[{\"b\":[0,0,270,538],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_13_October_15_21_11.png"},
+            {"id": "37", "idc": "15", "name": "", "data": "[{\"b\":[0,2,298,537],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_17_October_18_58_4.png"},
+            {"id": "38", "idc": "16", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_12_36_41.png"},
+            {"id": "39", "idc": "17", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_1_49_57.png"},
+            {"id": "40", "idc": "18", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_13_2_31.png"},
+            {"id": "41", "idc": "19", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_15_59_29.png"},
+            {"id": "42", "idc": "20", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_16_26_2.png"},
+            {"id": "43", "idc": "21", "name": "", "data": "[{\"b\":[0,0,285,540],\"p\":-1,\"c\":0,\"r\":0,\"m\":0}]", "thumbnail": "_21_October_16_40_42.png"},
+            {"id": "44", "idc": "8", "name": "", "data": "[{\"b\":[-15,-13,116,116],\"p\":2,\"c\":0,\"r\":0,\"m\":3},{\"b\":[109,-13,116,116],\"p\":4,\"c\":0,\"r\":2,\"m\":3},{\"b\":[233,-13,116,116],\"p\":-1,\"c\":0,\"r\":4,\"m\":3},{\"b\":[357,-13,116,116],\"p\":-1,\"c\":0,\"r\":6,\"m\":3},{\"b\":[-15,111,116,116],\"p\":4,\"c\":2,\"r\":0,\"m\":3},{\"b\":[109,111,116,116],\"p\":6,\"c\":2,\"r\":2,\"m\":3},{\"b\":[233,111,116,116],\"p\":-1,\"c\":2,\"r\":4,\"m\":3},{\"b\":[357,111,116,116],\"p\":-1,\"c\":2,\"r\":6,\"m\":3}]", "thumbnail": "_1_November_11_14_30.png"},
+            {"id": "45", "idc": "22", "name": "Yeah!", "data": "[{\"b\":[2,3,56,56],\"p\":-1,\"c\":0,\"r\":0,\"m\":0},{\"b\":[70,3,56,56],\"p\":-1,\"c\":0,\"r\":1,\"m\":0},{\"b\":[138,3,56,56],\"p\":-1,\"c\":0,\"r\":2,\"m\":0},{\"b\":[206,3,56,56],\"p\":-1,\"c\":0,\"r\":3,\"m\":0},{\"b\":[274,3,56,56],\"p\":-1,\"c\":0,\"r\":4,\"m\":0},{\"b\":[342,3,56,56],\"p\":-1,\"c\":0,\"r\":5,\"m\":0},{\"b\":[410,3,56,56],\"p\":-1,\"c\":0,\"r\":6,\"m\":0},{\"b\":[480,3,56,56],\"p\":-1,\"c\":0,\"r\":7,\"m\":0},{\"b\":[2,73,56,56],\"p\":-1,\"c\":1,\"r\":0,\"m\":0},{\"b\":[70,73,56,56],\"p\":-1,\"c\":1,\"r\":1,\"m\":0},{\"b\":[138,73,56,56],\"p\":-1,\"c\":1,\"r\":2,\"m\":0},{\"b\":[206,73,56,56],\"p\":-1,\"c\":1,\"r\":3,\"m\":0},{\"b\":[274,73,56,56],\"p\":-1,\"c\":1,\"r\":4,\"m\":0},{\"b\":[342,73,126,126],\"p\":-1,\"c\":1,\"r\":5,\"m\":3},{\"b\":[480,73,56,56],\"p\":-1,\"c\":1,\"r\":7,\"m\":0},{\"b\":[2,143,56,56],\"p\":-1,\"c\":2,\"r\":0,\"m\":0},{\"b\":[70,143,56,56],\"p\":-1,\"c\":2,\"r\":1,\"m\":0},{\"b\":[138,143,56,56],\"p\":-1,\"c\":2,\"r\":2,\"m\":0},{\"b\":[206,143,56,56],\"p\":-1,\"c\":2,\"r\":3,\"m\":0},{\"b\":[274,143,56,56],\"p\":-1,\"c\":2,\"r\":4,\"m\":0},{\"b\":[480,143,56,56],\"p\":-1,\"c\":2,\"r\":7,\"m\":0},{\"b\":[2,213,56,56],\"p\":-1,\"c\":3,\"r\":0,\"m\":0},{\"b\":[70,213,56,56],\"p\":-1,\"c\":3,\"r\":1,\"m\":0},{\"b\":[138,213,56,56],\"p\":-1,\"c\":3,\"r\":2,\"m\":0},{\"b\":[206,213,56,56],\"p\":-1,\"c\":3,\"r\":3,\"m\":0},{\"b\":[274,213,56,56],\"p\":-1,\"c\":3,\"r\":4,\"m\":0},{\"b\":[342,213,56,56],\"p\":-1,\"c\":3,\"r\":5,\"m\":0},{\"b\":[410,213,56,56],\"p\":-1,\"c\":3,\"r\":6,\"m\":0},{\"b\":[480,213,56,56],\"p\":-1,\"c\":3,\"r\":7,\"m\":0}]", "thumbnail": "_23_June_8_4_29.png"}
+        ];
+        var clips = [
+            {"id": "1", "type": "clip", "data": "M 18.555555 4.5555553 C 18.555555 4.5555553 22.222221 0.44444445 25.222221 0.5555556 C 28.222221 0.6666667 32.333332 5.0 32.333332 5.0 C 32.333332 5.0 37.22222 2.4444444 39.555557 5.0 C 41.88889 7.5555553 42.22222 12.333333 42.22222 12.333333 C 42.22222 12.333333 48.22222 15.0 48.22222 19.777779 C 48.22222 24.555555 46.0 25.777779 46.0 25.777779 C 46.0 25.777779 50.0 30.555555 47.88889 34.333332 C 45.77778 38.11111 44.11111 38.88889 44.11111 38.88889 C 44.11111 38.88889 41.333332 39.333332 41.333332 39.333332 C 41.333332 39.333332 40.666668 45.666668 37.11111 46.555557 C 33.555557 47.444443 30.666666 46.22222 30.666666 46.22222 C 30.666666 46.22222 27.555555 50.0 24.222221 49.444443 C 20.88889 48.88889 17.666666 46.0 17.666666 46.0 C 17.666666 46.0 11.222222 46.88889 9.0 44.333332 C 6.7777777 41.77778 7.4444447 36.77778 7.4444447 36.77778 C 7.4444447 36.77778 1.3333334 36.11111 0.8888889 31.777779 C 0.44444445 27.444445 3.5555556 25.444445 3.5555556 25.444445 C 3.5555556 25.444445 -0.22222222 21.444445 1.8888888 16.0 C 4.0 10.555555 7.4444447 12.444445 7.4444447 12.444445 C 7.4444447 12.444445 6.3333335 6.3333335 9.888889 4.111111 C 13.444445 1.8888888 18.333334 4.4444447 18.333334 4.4444447 z", "datax2": "M 29.5 6.5 C 29.5 6.5 31.625 3.125 33.75 1.75 C 35.875 0.375 37.625 0.0 40.875 0.25 C 44.125 0.5 46.125 1.0 47.375 2.75 C 48.625 4.5 49.125 6.75 50.875 6.625 C 52.625 6.5 55.625 5.125 59.625 6.125 C 63.625 7.125 64.75 8.0 66.375 10.125 C 68.0 12.25 69.375 18.625 69.375 19.25 C 69.375 19.875 72.75 21.75 74.125 22.5 C 75.5 23.25 78.5 26.375 78.75 27.875 C 79.0 29.375 79.875 33.5 78.875 35.125 C 77.875 36.75 76.5 39.0 75.75 39.875 C 75.0 40.75 78.5 43.375 78.625 46.75 C 78.75 50.125 78.625 52.125 77.625 54.375 C 76.625 56.625 76.75 58.25 73.625 59.0 C 70.5 59.75 68.625 59.5 68.375 61.5 C 68.125 63.5 68.5 66.375 67.875 67.375 C 67.25 68.375 66.25 71.25 64.75 71.875 C 63.25 72.5 60.5 74.0 57.375 73.875 C 54.25 73.75 51.75 71.5 50.625 72.625 C 49.5 73.75 48.125 76.5 45.75 77.5 C 43.375 78.5 40.375 79.375 37.75 78.875 C 35.125 78.375 33.5 79.0 31.75 77.0 C 30.0 75.0 28.875 73.5 28.875 73.5 C 28.875 73.5 26.625 73.375 24.625 73.875 C 22.625 74.375 19.125 74.375 17.25 73.0 C 15.375 71.625 12.5 69.875 11.75 66.75 C 11.0 63.625 10.75 61.625 11.0 60.375 C 11.25 59.125 9.125 59.0 7.0 58.25 C 4.875 57.5 2.875 56.375 1.75 53.75 C 0.625 51.125 0.0 47.375 1.0 44.875 C 2.0 42.375 3.125 40.875 4.125 40.125 C 5.125 39.375 4.0 37.875 2.75 35.75 C 1.5 33.625 0.0 31.5 1.25 27.75 C 2.5 24.0 4.125 21.625 6.125 20.75 C 8.125 19.875 9.875 19.625 10.75 19.0 C 11.625 18.375 9.75 15.625 11.125 12.625 C 12.5 9.625 14.5 7.875 16.5 6.625 C 18.5 5.375 20.375 4.25 23.125 4.625 C 25.875 5.0 29.375 6.375 29.375 6.375 z", "thumbnail": "flower50.png", "name": "Flower 50x50"},
+            {"id": "2", "type": "clip", "data": "M 29.5 6.5 C 29.5 6.5 31.625 3.125 33.75 1.75 C 35.875 0.375 37.625 0.0 40.875 0.25 C 44.125 0.5 46.125 1.0 47.375 2.75 C 48.625 4.5 49.125 6.75 50.875 6.625 C 52.625 6.5 55.625 5.125 59.625 6.125 C 63.625 7.125 64.75 8.0 66.375 10.125 C 68.0 12.25 69.375 18.625 69.375 19.25 C 69.375 19.875 72.75 21.75 74.125 22.5 C 75.5 23.25 78.5 26.375 78.75 27.875 C 79.0 29.375 79.875 33.5 78.875 35.125 C 77.875 36.75 76.5 39.0 75.75 39.875 C 75.0 40.75 78.5 43.375 78.625 46.75 C 78.75 50.125 78.625 52.125 77.625 54.375 C 76.625 56.625 76.75 58.25 73.625 59.0 C 70.5 59.75 68.625 59.5 68.375 61.5 C 68.125 63.5 68.5 66.375 67.875 67.375 C 67.25 68.375 66.25 71.25 64.75 71.875 C 63.25 72.5 60.5 74.0 57.375 73.875 C 54.25 73.75 51.75 71.5 50.625 72.625 C 49.5 73.75 48.125 76.5 45.75 77.5 C 43.375 78.5 40.375 79.375 37.75 78.875 C 35.125 78.375 33.5 79.0 31.75 77.0 C 30.0 75.0 28.875 73.5 28.875 73.5 C 28.875 73.5 26.625 73.375 24.625 73.875 C 22.625 74.375 19.125 74.375 17.25 73.0 C 15.375 71.625 12.5 69.875 11.75 66.75 C 11.0 63.625 10.75 61.625 11.0 60.375 C 11.25 59.125 9.125 59.0 7.0 58.25 C 4.875 57.5 2.875 56.375 1.75 53.75 C 0.625 51.125 0.0 47.375 1.0 44.875 C 2.0 42.375 3.125 40.875 4.125 40.125 C 5.125 39.375 4.0 37.875 2.75 35.75 C 1.5 33.625 0.0 31.5 1.25 27.75 C 2.5 24.0 4.125 21.625 6.125 20.75 C 8.125 19.875 9.875 19.625 10.75 19.0 C 11.625 18.375 9.75 15.625 11.125 12.625 C 12.5 9.625 14.5 7.875 16.5 6.625 C 18.5 5.375 20.375 4.25 23.125 4.625 C 25.875 5.0 29.375 6.375 29.375 6.375 z", "datax2": "M 80.83336 1.0 C 80.83336 1.0 72.83336 0.66667 67.0 5.66665 C 61.16668 10.66667 60.0 14.66667 60.0 14.66667 C 60.0 14.66667 51.33332 10.0 44.66668 10.0 C 38.0 10.0 33.16668 13.0 30.16666 16.0 C 27.16666 19.0 23.66666 23.66666 23.66666 29.33334 C 23.66666 35.0 25.83334 39.0 25.83334 39.16668 C 25.83334 39.33332 14.5 39.0 9.33333 45.5 C 4.166665 52.0 2.666667 56.0 3.33333 64.0 C 3.0 65.0 3.83333 69.0 5.666665 72.0 C 7.5 75.0 10.5 77.5 10.5 77.83336 C 10.5 78.16664 1.333334 84.16664 1.666666 94.16664 C 2.0 104.16664 3.33333 105.16664 5.33335 109.0 C 7.33335 112.83336 13.16667 114.66664 16.66666 115.66664 C 20.16666 116.66664 23.33334 117.33336 23.33334 117.33336 C 23.33334 117.33336 21.83334 132.0 25.66666 136.5 C 29.5 141.0 33.0 144.0 38.16668 145.6667 C 43.33332 147.3333 45.66668 146.6667 49.83332 145.8333 C 54.0 145.0 57.0 143.3333 57.0 143.3333 C 57.0 143.3333 64.83336 155.0 71.16664 156.3333 C 77.5 157.6667 83.83336 157.6667 87.66664 156.0 C 91.5 154.3333 94.83336 152.3333 96.83336 149.8333 C 98.83336 147.3333 99.83336 143.1667 99.83336 143.1667 C 99.83336 143.16667 112.83336 150.333 119.66664 147.6667 C 126.5 145.0 131.3333 145.1667 134.16667 139.8333 C 137.0 134.5 136.8333 129.5 136.5 126.16664 C 136.1667 122.83336 134.5 120.5 134.5 120.5 C 134.5 120.5 147.16667 119.66664 151.3333 114.66664 C 155.5 109.66664 157.6667 107.5 158.1667 102.83336 C 158.6667 98.16664 159.0 91.16664 155.8333 87.0 C 152.6667 82.83336 148.3333 80.5 148.3333 80.5 C 148.3333 80.5 158.5 74.16664 158.8333 66.5 C 159.1667 58.83332 159.16667 52.83332 157.0 50.0 C 154.8333 47.16668 149.3333 43.33332 144.8333 42.83332 C 140.3333 42.33332 137.1667 43.16668 137.1667 43.16668 C 137.1667 43.16668 139.1667 36.0 138.16667 29.83334 C 137.1667 23.66666 136.3333 21.16666 132.0 17.5 C 127.66664 13.83333 123.83336 11.66667 119.0 12.16667 C 114.16664 12.66667 103.0 16.83334 103.16664 16.83334 C 103.33336 16.83334 101.83336 7.833335 93.83336 4.0 C 93.5 2.166667 80.5 0.83333 80.5 0.833333 z", "thumbnail": "flower80.png", "name": "Flower 80x80"},
+            {"id": "3", "type": "clip", "data": "M 24.75 5.0 C 24.75 5.0 20.75 0.125 12.625 0.75 C 4.5 1.375 2.25 6.5 3.5 5.25 C 4.75 4.0 -2.125 9.125 1.375 17.625 C 4.875 26.125 9.125 32.125 13.125 37.25 C 17.125 42.375 25.25 49.875 25.25 49.875 C 25.25 49.875 37.25 37.375 37.25 37.375 C 37.25 37.375 46.625 23.875 47.875 19.125 C 49.125 14.375 49.5 8.5 46.0 5.375 C 42.5 2.25 38.375 0.5 34.875 0.75 C 31.375 1.0 27.25 2.0 25.0 4.75", "datax2": "M 39.333332 7.0 C 39.333332 7.0 31.666666 1.8333334 31.666666 1.8333334 C 31.666666 1.8333334 20.666666 -0.6666667 14.0 3.1666667 C 7.3333335 7.0 4.1666665 7.6666665 2.8333333 13.0 C 1.5 18.333334 1.8333334 27.666666 4.3333335 32.166668 C 6.8333335 36.666668 17.0 53.333332 17.0 53.333332 C 17.0 53.333332 26.5 64.833336 29.5 67.833336 C 32.5 70.833336 40.333332 78.666664 40.333332 78.833336 C 40.333332 79.0 50.166668 68.833336 53.166668 65.333336 C 56.166668 61.833332 70.5 44.333332 74.166664 36.0 C 77.833336 27.666666 80.0 17.333334 77.5 13.166667 C 75.0 9.0 71.5 5.3333335 66.5 3.3333333 C 61.5 1.3333334 55.5 -0.16666667 50.666668 1.6666666 C 45.833332 3.5 39.666668 7.0 39.666668 7.0 z", "thumbnail": "heart50.png", "name": "Heart 50x50"},
+            {"id": "4", "type": "clip", "data": "M 39.333332 7.0 C 39.333332 7.0 31.666666 1.8333334 31.666666 1.8333334 C 31.666666 1.8333334 20.666666 -0.6666667 14.0 3.1666667 C 7.3333335 7.0 4.1666665 7.6666665 2.8333333 13.0 C 1.5 18.333334 1.8333334 27.666666 4.3333335 32.166668 C 6.8333335 36.666668 17.0 53.333332 17.0 53.333332 C 17.0 53.333332 26.5 64.833336 29.5 67.833336 C 32.5 70.833336 40.333332 78.666664 40.333332 78.833336 C 40.333332 79.0 50.166668 68.833336 53.166668 65.333336 C 56.166668 61.833332 70.5 44.333332 74.166664 36.0 C 77.833336 27.666666 80.0 17.333334 77.5 13.166667 C 75.0 9.0 71.5 5.3333335 66.5 3.3333333 C 61.5 1.3333334 55.5 -0.16666667 50.666668 1.6666666 C 45.833332 3.5 39.666668 7.0 39.666668 7.0 z", "datax2": "M 78.5 15.5 C 78.5 15.5 71.25 2.25 56.25 1.5 C 41.25 0.75 28.0 2.5 20.0 7.75 C 12.0 13.0 4.5 21.75 3.0 30.0 C 1.5 38.25 0.75 50.75 6.75 64.5 C 12.75 78.25 25.0 95.25 30.5 101.75 C 36.0 108.25 54.5 131.0 59.0 135.5 C 63.5 140.0 80.0 157.0 80.0 157.0 C 80.0 157.0 91.5 147.75 109.0 127.5 C 126.5 107.25 136.25 95.5 143.0 84.0 C 149.75 72.5 154.25 67.0 155.75 55.5 C 157.25 44.0 158.0 31.25 155.75 25.0 C 151.0 15.25 151.75 19.25 149.5 15.25 C 144.0 9.75 133.0 3.75 125.0 3.25 C 117.0 2.75 94.25 3.25 87.75 7.75 C 81.25 12.25 78.0 15.75 78.25 15.75 z", "thumbnail": "heart80.png", "name": "Heart 80x80"},
+            {"id": "5", "type": "clip", "data": "M 12.111111 1.8888888 C 12.111111 1.8888888 37.22222 2.0 37.22222 2.0 C 37.22222 2.0 49.666668 24.555555 49.666668 24.555555 C 49.666668 24.555555 37.666668 47.88889 37.666668 47.88889 C 37.666668 47.88889 12.555555 47.77778 12.555555 47.77778 C 12.555555 47.77778 0.33333334 27.444445 0.33333334 25.777779 C 0.33333334 24.11111 11.888889 2.1111112 11.888889 2.1111112 z", "datax2": "M 19.444445 3.0 C 19.444445 3.0 60.555557 3.2222223 60.555557 3.2222223 C 60.555557 3.2222223 79.333336 37.444443 79.333336 37.444443 C 79.333336 37.444443 79.77778 40.88889 79.55556 42.11111 C 79.333336 43.333332 61.11111 77.0 61.11111 77.0 C 61.11111 77.0 19.444445 76.888885 19.444445 76.888885 C 19.444445 76.888885 0.44444445 41.77778 0.44444445 41.77778 C 0.44444445 41.77778 0.33333334 38.0 0.44444445 38.0 C 0.5555556 38.0 19.333334 3.2222223 19.333334 3.2222223 z", "thumbnail": "polygon50.png", "name": "Polygon 50x50"},
+            {"id": "6", "type": "clip", "data": "M 19.444445 3.0 C 19.444445 3.0 60.555557 3.2222223 60.555557 3.2222223 C 60.555557 3.2222223 79.333336 37.444443 79.333336 37.444443 C 79.333336 37.444443 79.77778 40.88889 79.55556 42.11111 C 79.333336 43.333332 61.11111 77.0 61.11111 77.0 C 61.11111 77.0 19.444445 76.888885 19.444445 76.888885 C 19.444445 76.888885 0.44444445 41.77778 0.44444445 41.77778 C 0.44444445 41.77778 0.33333334 38.0 0.44444445 38.0 C 0.5555556 38.0 19.333334 3.2222223 19.333334 3.2222223 z", "datax2": "M 38.0 5.5 C 38.0 5.5 121.0 6.0 121.0 6.0 C 121.0 6.0 159.25 76.5 159.25 76.5 C 159.25 76.5 159.0 83.75 159.0 83.75 C 159.0 83.75 121.75 153.75 121.75 153.75 C 121.75 153.75 38.5 154.25 38.5 154.25 C 38.5 154.25 0.75 83.25 0.75 83.25 C 0.75 83.25 1.25 75.5 1.25 75.5 C 1.25 75.5 38.0 5.25 38.0 5.25 z", "thumbnail": "polygon80.png", "name": "Polygon 80x80"}
+        ];
+        var guilang = {"gl": {"selectdevice": "Select your device", "uploadimage": "Upload your image", "customizedevice": "Customize device", "category": "Category", "device": "Device", "tools": "Image tools", "scale": "Scale", "rotation": "Rotation", "reset": "Reset", "preview": "Preview cover for", "addtocart": "Add to cart", "upload": "Upload Image", "errorupload": "Error while uploading", "designcanvasrequired": "You need design for all canvas.", "close": "Close", "nameyourdesign": "You may optionally give your design a name", "price": "Price", "addtocarterror": "There are error while add to cart.", "subcategory": "Sub category", "instruction-step1": "Please select your device", "instruction-upload": "Upload an photo to design tool", "printboundaryrestrict": "Photo need to fill the print boundary", "printboundaryrestrictalert": "Please make sure all photo fill print area.", "imagequalityprogress": "Quality", "imagesizeinfoline1": "Your image size is ", "imagesizeinfoline2": "Ideal image size for this device is ", "addyourtext": "Add your text", "instruction-step2": "Please select background image", "creationtool": "Creation Tool", "save": "SAVE", "changeproduct": "Change Product", "canvas": "Canvas", "layout": "Layout", "effect": "Effects", "random": "Random", "tchoosecategory": "please choose category", "tselectdevice": "Please Select Device", "Wselectcanvas": "Please select canvas.", "Wselectimages": "Please add image to layer", "Wresetlayout": "All design will be lost", "Wemptycanvas": "Please Design Canvas first"}, "dgl": {"selectdevice": "Select your device", "uploadimage": "Upload your image", "customizedevice": "Customize device", "category": "Category", "device": "Device", "tools": "Image tools", "scale": "Scale", "rotation": "Rotation", "reset": "Reset", "preview": "Preview cover for", "addtocart": "Add to cart", "upload": "Upload Image", "errorupload": "Error while uploading", "designcanvasrequired": "You need design for all canvas.", "close": "Close", "nameyourdesign": "You may optionally give your design a name", "price": "Price", "addtocarterror": "There are error while add to cart.", "subcategory": "Sub category", "instruction-step1": "Please select your device", "instruction-upload": "Upload an photo to design tool", "printboundaryrestrict": "Photo need to fill the print boundary", "printboundaryrestrictalert": "Please make sure all photo fill print area.", "imagequalityprogress": "Quality", "imagesizeinfoline1": "Your image size is ", "imagesizeinfoline2": "Ideal image size for this device is ", "addyourtext": "Add your text", "instruction-step2": "Please select background image", "creationtool": "Creation Tool", "save": "SAVE", "changeproduct": "Change Product", "canvas": "Canvas", "layout": "Layout", "effect": "Effects", "random": "Random", "tchoosecategory": "please choose category", "tselectdevice": "Please Select Device", "Wselectcanvas": "Please select canvas.", "Wselectimages": "Please add image to layer", "Wresetlayout": "All design will be lost", "Wemptycanvas": "Please Design Canvas first"}};
+        var sdevice = "0";
+        var effect = [
+            {effect: "none", name: "None"},
+            {effect: "vintage", name: "Vintage"},
+            {effect: "lomo", name: "Lomo"},
+            {effect: "clarity", name: "Clarity"},
+            {effect: "sinCity", name: "Sin City"},
+            {effect: "sunrise", name: "Sunrise"},
+            {effect: "crossProcess", name: "Cross Process"},
+            {effect: "orangePeel", name: "Orange Peel"},
+            {effect: "love", name: "Love"},
+            {effect: "grungy", name: "Grungy"},
+            {effect: "jarques", name: "Jarques"},
+            {effect: "pinhole", name: "Pinhole"},
+            {effect: "oldBoot", name: "Old Boot"},
+            {effect: "glowingSun", name: "Glowing Sun"},
+            {effect: "hazyDays", name: "Hazy Days"},
+            {effect: "herMajesty", name: "Her Majesty"},
+            {effect: "nostalgia", name: "Nostalgia"},
+            {effect: "hemingway", name: "Hemingway"},
+            {effect: "concentrate", name: "Concentrate"},
+        ]
+    </script>
+    <style type="text/css">.cufon-canvas {
+        text-indent: 0
+    }
+
+    @media screen, projection {
+        .cufon-canvas {
+            display: inline;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            font-size: 1px;
+            line-height: 1px
+        }
+
+        .cufon-canvas .cufon-alt {
+            display: -moz-inline-box;
+            display: inline-block;
+            width: 0;
+            height: 0;
+            overflow: hidden
+        }
+
+        .cufon-canvas canvas {
+            position: relative
+        }
+    }
+
+    @media print {
+        .cufon-canvas {
+            padding: 0 !important
+        }
+
+        .cufon-canvas canvas {
+            display: none
+        }
+
+        .cufon-canvas .cufon-alt {
+            display: inline
+        }
+    }
+    </style>
+
   </head>
 
   <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
+    <div class="frog" style="display:none;">
+        <div class="ctrpanel">
+            <div class="trash btn-ctr">Trash</div>
+            <div class="cancel btn-ctr">Cancel</div>
+            <div class="done btn-ctr">Ok</div>
+        </div>
+        <div class="process_bar" style="display:none;">
+            <div class="percent"></div>
+            0%
+        </div>
+        <div class="prewrap" style="display:none;">
+            <div class="preview">
+                <div class="cloze">X</div>
+                <div class="preheader">
+                    <h2>Awesome</h2>
+                    <h4>Design saved</h4>
+                </div>
+                <div class="prebody">
+                    <div class="preimage"></div>
+                    <div class="precmd">
+                        <div class="share">
+                            <div class="ishare fshare"></div>
+                            <div class="ishare tshare"></div>
+                            <div class="ishare pshare"></div>
+                            <div class="ishare eshare"></div>
+                        </div>
+                        <div class="gallery bbtn">Go to your gallery</div>
+                        <div class="another bbtn">Make another case</div>
+                        <div class="checkout bbtn" style="background-color:#5fc3c4"><p class="uicon" style="float:left;margin: -7px 0 0 100px;"></p>
+                            <div style="float:left;margin: 2px 15px;color:#fff;">Checkout</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper" style="width: 1837px; height: 719px;">
+        <div id="left-content" style="width: 1436px;">
+            <div class="header">
+                <div class="logo"></div>
+                <div style="margin-left:5px;padding-top:15px;"><a href="#">Go back to the website</a></div>
+            </div>
+            <div class="main" style="width: 1432px; height: 618px;">
+                <div class="row" style="height:100%;">
+                    <div class="left-info col-md-3 col-xs-0 tranw">
+                        <div class="info" style="margin-top: 109.5px;">
+                            <p class="ptitle" style="font-size: 61.379999999999995px;">Iphone 6</p>
+
+                            <p class="pprice">$2.99</p>
+
+                            <p class="shipping">Free Shipping</p>
+
+                            <p class="help">Need Help?</p>
+                        </div>
+                    </div>
+                    <div class="design col-md-9 col-xs-12 row tranw">
+                        <div class="beside col-md-4 col-xs-0">
+                            <div class="beside-image"></div>
+                        </div>
+                        <div class="product col-md-4 col-xs-12">
+                        </div>
+                        <div class="col-md-4 col-xs-0"></div>
+                    </div>
+                </div>
+                <div class="bottomCtr" align="center">
+                    <div class="reset btnlabel" onclick="reset();"><p class="uicon"></p><p>Reset</p></div>
+                    <div class="random btnlabel" onclick="random();"><p class="uicon"></p><p>Shuffle</p></div>
+                </div>
+            </div>
+        </div>
+        <div id="right-menu">
+            <div class="top-menu">
+                <div id="tab1" class="tab">1.Products</div>
+                <div id="tab2" class="tab active">2.Photos</div>
+                <div id="tab3" class="tab">3.Case/Filter</div>
+            </div>
+            <div id="mmenu" class="middle-menu">
+                <div id="tab1-cont" class="tab-content">
+                    <div id="btn-device" class="tab-btn col6">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p>Device</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                    <div id="btn-layout" class="tab-btn col6">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Layout</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab2-cont" class="tab-content active">
+                    <div id="btn-instagram" class="tab-btn col3 active">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Instagram</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                    <div id="btn-facebook" class="tab-btn col3">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Facebook</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                    <div id="btn-uploads" class="tab-btn col3">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Uploads</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                    <div id="btn-stamp" class="tab-btn col3">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Stamps</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab3-cont" class="tab-content">
+                    <div id="btn-case" class="tab-btn col6">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p>Case</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                    <div id="btn-filter" class="tab-btn col6">
+                        <div class="btnlabel"><p class="uicon"></p>
+
+                            <p class="utext">Filter</p></div>
+                        <div class="arrow">
+                            <div class="ycon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-menu" style="height: 459px;">
+                <div id="cont-btn-device" class="menu-cont">
+                </div>
+                <div id="cont-btn-layout" class="menu-cont">
+                </div>
+                <div id="cont-btn-instagram" class="menu-cont active">
+                    <div class="switchalbum">
+                        <div data="tabphoto" class="btnalbum col6 first active" style="display: none;">
+                            <div class="insavata savata"></div>
+                            Your Albums
+                        </div>
+                        <div data="tabuser" class="btnalbum col6 last" style="display: none;">
+                            <div class="savata"></div>
+                            Friends Albums
+                        </div>
+                        <p class="backalbum" style="display:none;"><span></span> Back to Album</p>
+                    </div>
+                    <div class="tablogin xcroll">
+                        <h3 class="socialhead">Connect to Instagram!</h3>
+
+                        <p class="socialnotice">Connect to your Instagram account to customize your case.</p>
+
+                        <div onclick="INS_login()" class="sociallogin">
+                            <div class="logicon"><span class="uicon"></span></div>
+                            <span class="scname">Instagram</span>
+                        </div>
+                    </div>
+                    <div class="tabdetail tabalbum xcroll" style="display:none;">
+
+                    </div>
+                    <div class="tabdetail tabuser xcroll">
+
+                    </div>
+                    <div class="tabdetail tabphoto xcroll">
+                        <div class="photoout" style="padding:5px 0 0 5px;"></div>
+                    </div>
+                </div>
+                <div id="cont-btn-facebook" class="menu-cont">
+                    <div class="switchalbum">
+                        <div data="tabalbum" class="btnalbum col6 first active" style="display: none;">
+                            <div class="faceavata savata"></div>
+                            Your Albums
+                        </div>
+                        <div data="tabuser" class="btnalbum col6 last" style="display: none;">
+                            <div class="savata"></div>
+                            Friends Albums
+                        </div>
+                        <p class="backalbum" style="display:none;"><span></span> Back to Album</p>
+                    </div>
+                    <div class="tablogin xcroll">
+                        <h3 class="socialhead">Connect to Facebook!</h3>
+
+                        <p class="socialnotice">Connect to your Facebook account to customize your case.</p>
+
+                        <div onclick="FB_login()" class="sociallogin">
+                            <div class="logicon"><span class="uicon"></span></div>
+                            <span class="scname">Facebook</span>
+                        </div>
+                    </div>
+                    <div class="tabdetail tabalbum xcroll active" style="display:none;">
+
+                    </div>
+                    <div class="tabdetail tabuser xcroll">
+                        <div class="usercell"></div>
+
+                    </div>
+                    <div class="tabdetail tabphoto xcroll">
+                        <div class="photoout" style="padding:5px 0 0 5px;"></div>
+                    </div>
+                </div>
+                <div id="cont-btn-uploads" class="menu-cont">
+                    <div class="uploadarea">
+                        <p>Drop your pictures here!</p>
+
+                        <p class="uploadstat"></p>
+
+                        <div class="btnupload" onclick="$('#userfilex').click();">Or upload</div>
+                        <div></div>
+                        <input type="file" id="userfilex" name="userfile" style="display:none;visibility:hidden;">
+                    </div>
+                    <div class="tabdetail tabphoto xcroll active">
+                        <div class="photoout" style="padding:5px 0 0 5px;"></div>
+                    </div>
+                </div>
+                <div id="cont-btn-stamp" class="menu-cont"></div>
+                <div id="cont-btn-case" class="menu-cont"></div>
+                <div id="cont-btn-filter" class="menu-cont">
+                    <div class="xcroll">
+                        <div class="efcell" onclick="applyEffect('none');"><img
+                                src="assets/effect/thumbnail/none.png"></div>
+                        <div class="efcell" onclick="applyEffect('vintage');"><img
+                                src="assets/effect/thumbnail/vintage.png"></div>
+                        <div class="efcell" onclick="applyEffect('lomo');"><img
+                                src="assets/effect/thumbnail/lomo.png"></div>
+                        <div class="efcell" onclick="applyEffect('clarity');"><img
+                                src="assets/effect/thumbnail/clarity.png"></div>
+                        <div class="efcell" onclick="applyEffect('sinCity');"><img
+                                src="assets/effect/thumbnail/sinCity.png"></div>
+                        <div class="efcell" onclick="applyEffect('sunrise');"><img
+                                src="assets/effect/thumbnail/sunrise.png"></div>
+                        <div class="efcell" onclick="applyEffect('crossProcess');"><img
+                                src="assets/effect/thumbnail/crossProcess.png">
+                        </div>
+                        <div class="efcell" onclick="applyEffect('orangePeel');"><img
+                                src="assets/effect/thumbnail/orangePeel.png"></div>
+                        <div class="efcell" onclick="applyEffect('love');"><img
+                                src="assets/effect/thumbnail/love.png"></div>
+                        <div class="efcell" onclick="applyEffect('grungy');"><img
+                                src="assets/effect/thumbnail/grungy.png"></div>
+                        <div class="efcell" onclick="applyEffect('jarques');"><img
+                                src="assets/effect/thumbnail/jarques.png"></div>
+                        <div class="efcell" onclick="applyEffect('pinhole');"><img
+                                src="assets/effect/thumbnail/pinhole.png"></div>
+                        <div class="efcell" onclick="applyEffect('oldBoot');"><img
+                                src="assets/effect/thumbnail/oldBoot.png"></div>
+                        <div class="efcell" onclick="applyEffect('glowingSun');"><img
+                                src="assets/effect/thumbnail/glowingSun.png"></div>
+                        <div class="efcell" onclick="applyEffect('hazyDays');"><img
+                                src="assets/effect/thumbnail/hazyDays.png"></div>
+                        <div class="efcell" onclick="applyEffect('herMajesty');"><img
+                                src="assets/effect/thumbnail/herMajesty.png"></div>
+                        <div class="efcell" onclick="applyEffect('nostalgia');"><img
+                                src="assets/effect/thumbnail/nostalgia.png"></div>
+                        <div class="efcell" onclick="applyEffect('hemingway');"><img
+                                src="assets/effect/thumbnail/hemingway.png"></div>
+                        <div class="efcell" onclick="applyEffect('concentrate');"><img
+                                src="assets/effect/thumbnail/concentrate.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-menu">
+                <p id="btn-save" onclick="save()">SAVE DESIGN</p>
+
+                <p>Free shipping worldwide</p>
+            </div>
+
+        </div>
+    </div>
+    <div id="caman" style="display:none"></div>
+    <script type="text/javascript" src="assets/designer/js/lib/jquery-ui-1.9.0.custom.min.js"></script>
+    <script type="text/javascript" src="assets/designer/js/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="assets/designer/js/fileupload/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="assets/designer/js/fileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="assets/designer/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="assets/designer/js/lib/fabric.min10c.js"></script>
+    <script type="text/javascript" src="assets/designer/js/lib/kinectic.js"></script>
+    <script type="text/javascript" src="assets/designer/js/lib/caman.full.js"></script>
+    <script type="text/javascript" src="assets/designer/js/effect.js"></script>
+    <script type="text/javascript" src="assets/designer/js/objects.js"></script>
+    <script type="text/javascript" src="assets/designer/js/designeruploader.js"></script>
+
+
+    <script type="text/javascript">
+        var url_script = "index.php/assets/designer/js/";
+        var uploadUrl = "index.php/designer/upload_img/";
+        var urlredirect = "http://samfisher.skinizi.com/fr/factoryV2/product/addToCart";
+    </script>
   </body>
 </html>
